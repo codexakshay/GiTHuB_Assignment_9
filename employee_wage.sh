@@ -1,9 +1,16 @@
-isPresent=1;
+isPartTime=1;
+isFullTime=2;
 randomCheck=$(($RANDOM%2));
-if [ $isPresent -eq $randomCheck ];
-	then
-		echo "EMPLOYEE IS PRESENT";
-	else
-		echo "EMPLOYEE IS ABSENT";
+empRatePerHr=20;
+randomCheck=$(($RANDOM%3));
+if [ $isFullTime -eq $randomCheck ];
+        then
+                empHrs=12;
+elif [ $isPartTime -eq $randomCheck ];
+        then
+                empHrs=8;
+        else
+                empHrs=0;
 fi
-
+salary=$(($empHrs*$empRatePerHr));
+echo "EMPLOYEE SALARY IS : $salary";
